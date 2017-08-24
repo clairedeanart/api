@@ -12,6 +12,7 @@ const Image = BaseModel.extend({
     'contentType',
     'key',
     'etag',
+    'hidden',
     // Public facing
     'name',
     'medium',
@@ -21,7 +22,7 @@ const Image = BaseModel.extend({
     'sold',
     'tags',
     'created_at',
-    'updated_at'
+    'updated_at',
   ]
 });
 

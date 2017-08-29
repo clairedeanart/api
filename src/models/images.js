@@ -2,8 +2,7 @@ const BaseModel = require("./default").Model;
 
 // Model
 const Image = BaseModel.extend({
-  tableName: 'images'
-}, {
+  tableName: 'images',
   schema: [
     // Storage/AWS related
     'filename',
@@ -13,6 +12,8 @@ const Image = BaseModel.extend({
     'key',
     'etag',
     'hidden',
+    'created_at',
+    'updated_at',
     // Public facing
     'name',
     'medium',
@@ -21,8 +22,6 @@ const Image = BaseModel.extend({
     'price',
     'sold',
     'tags',
-    'created_at',
-    'updated_at',
   ]
 });
 

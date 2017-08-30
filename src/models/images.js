@@ -12,8 +12,9 @@ const Image = BaseModel.extend({
     'key',
     'etag',
     'hidden',
-    'created_at',
-    'updated_at',
+    'unedited',
+    'createdAt',
+    'updatedAt',
     // Public facing
     'name',
     'medium',

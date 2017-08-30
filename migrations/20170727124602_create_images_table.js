@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('images', function(table) {
-    table.increments();
+    table.increments().primary();
     // Storage related
     table.string('filename').notNullable();
     table.string('location', 3000).notNullable();

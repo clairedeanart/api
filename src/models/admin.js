@@ -10,10 +10,10 @@ const Admin = BaseModel.extend({
   schema: [
     'username',
     'password',
-    'last_name',
-    'first_name',
-    'created_at',
-    'updated_at'
+    'lastName',
+    'firstName',
+    'createdAt',
+    'updatedAt'
   ],
   // masks: {
   //   custom: 'password'

@@ -3,7 +3,6 @@ const Image = require('../models/images');
 const _ = require('underscore');
 
 router.get('/', (req, res, next) => {
-  // new Image.
   Image.Collection.query((qb) => {
     qb.where({
       hidden: false,
@@ -17,11 +16,15 @@ router.get('/', (req, res, next) => {
 });
 
 router.put('/:image_id', (req, res, next) => {
-  Image.Model.forge(Object.assign({
-    id: req.params.image_id,
-  }, req.body))
+  Image.Model.forge(
+    Object.assign({
+      id: req.params.image_id,
+    }, req.body)
+  )
   .save()
-  .then((image) => res.success(image))
+  .then((image) => {
+    res.success(image)
+  })
   .catch(res.error.internal);
 });
 
@@ -32,7 +35,6 @@ router.get('/all', (req, res, next) => {
   .then((images) => res.success(images))
   .catch(res.error.internal);
 });
-
 
 router.get('/unedited', (req, res, next) => {
   Image.Collection.query((qb) => {

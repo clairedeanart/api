@@ -7,10 +7,6 @@ pg.defaults.ssl = {
 };
 
 module.exports = {
-    pool: {
-        min: 1,
-        max: 20,
-    },
 
     development: {
         client: 'pg',
@@ -24,7 +20,11 @@ module.exports = {
 
     production: {
         client: 'pg',
-        connection: process.env.DATABASE_URL + `?ssl=true`,
+        connection: process.env.DATABASE_URL,
+        pool: {
+            min: 1,
+            max: 10,
+        },
         ssl: {
             rejectUnauthorized: false,
         },

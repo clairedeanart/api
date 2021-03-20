@@ -1,14 +1,16 @@
 // Update with your config settings.
 
+const pg = require('pg');
+
+pg.defaults.ssl = {
+   rejectUnauthorized: false,
+};
+
 module.exports = {
 
-    pool: {
-        min: 1,
-        max: 20,
-    },
     development: {
         client: 'pg',
-        connection: 'postgresql://localhost/claire-dean-art'
+        connection: 'postgresql://localhost/claire-dean-art',
     },
 
     test: {
@@ -18,7 +20,13 @@ module.exports = {
 
     production: {
         client: 'pg',
-        connection: `${process.env.DATABASE_URL}?ssl=true`
-    }
-
+        connection: process.env.DATABASE_URL,
+        pool: {
+            min: 1,
+            max: 10,
+        },
+        ssl: {
+            rejectUnauthorized: false,
+        },
+    },
 };

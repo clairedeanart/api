@@ -1,9 +1,12 @@
 // Update with your config settings.
 
-console.log('SSL?', process.env.NODE_ENV === 'production');
+const pg = require('pg');
+
+pg.defaults.ssl = {
+   rejectUnauthorized: false,
+};
 
 module.exports = {
-
     pool: {
         min: 1,
         max: 20,
@@ -23,13 +26,7 @@ module.exports = {
         client: 'pg',
         connection: process.env.DATABASE_URL + `?ssl=true`,
         ssl: {
-            require: true,
             rejectUnauthorized: false,
         },
-    },
-
-    ssl: {
-        require: true,
-        rejectUnauthorized: false,
     },
 };

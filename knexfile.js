@@ -1,5 +1,7 @@
 // Update with your config settings.
 
+console.log('SSL?', process.env.NODE_ENV === 'production');
+
 module.exports = {
 
     pool: {
@@ -18,7 +20,7 @@ module.exports = {
 
     production: {
         client: 'pg',
-        connection: process.env.DATABASE_URL + `?ssl=true`,
+        connection: process.env.DATABASE_URL,
     },
 
     ssl: process.env.NODE_ENV === 'production',

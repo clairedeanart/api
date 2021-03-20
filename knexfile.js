@@ -8,9 +8,10 @@ module.exports = {
         min: 1,
         max: 20,
     },
+
     development: {
         client: 'pg',
-        connection: 'postgresql://localhost/claire-dean-art'
+        connection: 'postgresql://localhost/claire-dean-art',
     },
 
     test: {
@@ -22,10 +23,8 @@ module.exports = {
         client: 'pg',
         connection: process.env.DATABASE_URL,
         ssl: {
+            require: true,
             rejectUnauthorized: false,
         },
     },
-
-    ssl: process.env.NODE_ENV === 'production',
-
 };

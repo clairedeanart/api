@@ -1,7 +1,7 @@
 // Update with your config settings.
 
 module.exports = {
-    debug: true,
+
     pool: {
         min: 1,
         max: 20,
@@ -18,7 +18,7 @@ module.exports = {
 
     production: {
         client: 'pg',
-        connection: process.env.DATABASE_URL
+        connection: `${process.env.DATABASE_URL}?ssl=true`
     }
 
 };

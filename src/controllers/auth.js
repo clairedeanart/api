@@ -23,7 +23,9 @@ router.post('/register', (req, res, next) => {
     Admin.create(req.body)
     .then(res.success)
     .catch(next);
-  } else return res.error.unauthorized('Missing or invalid registration key.');
+  } 
+  
+  return res.error.unauthorized('Missing or invalid registration key.');
 });
 
 module.exports = router;
